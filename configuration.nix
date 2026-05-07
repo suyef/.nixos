@@ -7,6 +7,11 @@
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.flake-registry = "";
+  
+  # channels are dead and flakes have killed them
+  nix.channel.enable = false;
+  
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
