@@ -66,7 +66,11 @@
 
   programs.firefox.enable = true;
 
-  nixpkgs.config.allowUnfree = true;
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+    xwayland.enable = true;
+  };
 
   environment.systemPackages = with pkgs; [
     git

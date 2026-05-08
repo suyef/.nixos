@@ -4,6 +4,7 @@
   # ./nvim.nix
   # ./mango.nix
   # etc
+    ./fish.nix
   ];
 
   nixpkgs = {
@@ -18,12 +19,11 @@
   home = {
     username = "suyef";
     homeDirectory = "/home/suyef";
+    shell.enableShellIntegration = true;
   };
 
   programs.neovim.enable = true;
   home.packages = with pkgs; [
-    
-
   ];
 
   programs.home-manager.enable = true;
