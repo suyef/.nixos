@@ -4,6 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./modules/core/boot.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -12,9 +13,6 @@
   # channels are dead and flakes have killed them
   nix.channel.enable = false;
   
-
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
