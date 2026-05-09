@@ -5,6 +5,8 @@
   # ./mango.nix
   # etc
     ./fish.nix
+    ./hyprland.nix
+    ./vicinae.nix
   ];
 
   nixpkgs = {
