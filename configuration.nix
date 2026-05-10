@@ -1,11 +1,21 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
     [
       ./hardware-configuration.nix
       ./modules/core/boot.nix
+      inputs.home-manager.nixosModules.home-manager
     ];
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+  home-manager.extraSpecialArgs = { inherit inputs; };
+  home-manager.backupFileExtension = "bak";
+  home-manager.users.suyef = {
+    imports = [ ./home/home.nix ];
+  };
+
+  nixpkgs.config.allowUnfree = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.flake-registry = "";
@@ -55,19 +65,24 @@
     pulse.enable = true;
   };
 
+  # enable to make swaylock work
+  security.pam.services.swaylock = {};
+
+  programs.fish.enable = true;
+
   users.users.suyef = {
     isNormalUser = true;
     description = "suyef";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      kdePackages.kate
-    ];
+    shell = pkgs.fish;
   };
 
   programs.firefox.enable = true;
 
   programs.hyprland = {
     enable = true;
+    withUWSM = true;
+    xwayland.enable = true;
   };
 
   environment.systemPackages = with pkgs; [

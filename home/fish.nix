@@ -3,15 +3,16 @@
     fish = {
       enable = true;
       generateCompletions = false;
-      interativeShellInit = ''
+      interactiveShellInit = ''
         set fish_greeting
       '';
       shellAliases = {
         shutdown = "systemctl poweroff";
         reboot = "systemctl reboot";
+	build = "sudo nixos rebuild switch --flake ~/nixos#tuna"
       };
     };
-    programs.starship = {
+    starship = {
       enable = true;
       settings = {
       aws.symbol = "  ";
@@ -102,6 +103,9 @@
     fzf = {
       enable = true;
       enableFishIntegration = true;
+    };
+    ripgrep = {
+      enable = true;
     };
     nix-your-shell = {
       enable = true;

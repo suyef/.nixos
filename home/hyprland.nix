@@ -1,12 +1,11 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, inputs, ... }:
 {
+  #imports = [ inputs.hyprland.homeModules.default ];
   # hint electron apps to use wayland
   home.sessionVariables.NIXOS_OZONE_WL = "1";
 
   wayland.windowManager.hyprland = {
     enable = true;
-    xwayland.enable = true;
-    withUWSM = true;
     systemd = {
       enable = true;
       variables = ["--all"];
@@ -15,7 +14,7 @@
     package = null;
     portalPackage = null;
     settings = {
-      "$mod" = SUPER;
+      "$mod" = "SUPER";
       device = [
         {
           name = "touchpad";
@@ -32,8 +31,46 @@
         };
       };
       general = {
-        gaps_out = 5;
-        gaps_in = 5;
+        gaps_out = 0;
+        gaps_in = 0;
+      };
+      dwindle = {
+      	pseudotile = true;
+	preserve_split = true;
+	force_split = 2;
+      };
+      animations = {
+        enabled = true;
+
+        bezier = [
+          "easeOutQuint, 0.23,1,0.32,1"
+          "easeInOutCubic, 0.65,0.05,0.36,1"
+          "linear, 0,0,1,1"
+          "almostLinear, 0.5,0.5,0.75,1.0"
+          "quick, 0.15,0,0.1,1"
+        ];
+
+        animation = [
+          "global, 1, 10, default"
+          "border, 1, 5.39, easeOutQuint"
+          "windows, 1, 4.79, easeOutQuint"
+          "windowsIn, 1, 4.1, easeOutQuint, popin 87%"
+          "windowsOut, 1, 1.49, linear, popin 87%"
+          "fadeIn, 1, 1.73, almostLinear"
+          "fadeOut, 1, 1.46, almostLinear"
+          "fade, 1, 3.03, quick"
+          "layers, 1, 3.81, easeOutQuint"
+          "layersIn, 1, 4, easeOutQuint, fade"
+          "layersOut, 1, 1.5, linear, fade"
+          "fadeLayersIn, 1, 1.79, almostLinear"
+          "fadeLayersOut, 1, 1.39, almostLinear"
+          "workspaces, 1, 1.94, almostLinear, fade"
+          "workspacesIn, 1, 1.21, almostLinear, fade"
+          "workspacesOut, 1, 1.94, almostLinear, fade"
+        ];
+      };
+      gestures = {
+	workspace_swipe_forever = true;
       };
       gesture = [
         "3, horizontal, workspace"
@@ -59,14 +96,14 @@
 
         "$mod, B, exec, firefox"
         "$mod, Return, exec, kitty"
-        "$, Print, exec, ${pkgs.hyprshot}/bin/hyprshot -m active"
+        ", Print, exec, ${pkgs.hyprshot}/bin/hyprshot -m active"
         "SHIFT, Print, exec, ${pkgs.hyprshot}/bin/hyprshot -m region"
-        "$mod, X, exec, vicinae, open"
+        "$mod, X, exec, vicinae open"
         "$mod, Q, killactive"
         "$mod, S, exec, signal-desktop"
         "$mod, O, togglefloating"
-        "$mod, C, exec vicinae deeplink vicinae://extensions/vicinae/clipboard/history"
-        "$mod SHIFT, L, exec, swaylock"
+        "$mod, C, exec, vicinae deeplink vicinae://extensions/vicinae/clipboard/history"
+        "$mod SHIFT CTRL, L, exec, swaylock"
         "$mod, F, fullscreen"
         # Move with hjkl
         "$mod, H, movefocus, l"
@@ -100,7 +137,7 @@
           fWorkspaces =
             builtins.genList (
               i: let
-                ws = "F${toString (i = 1)}";
+                ws = "F${toString (i + 1)}";
                 key = "F${toString (i + 1)}";
               in [
                 "$mod, ${key}, workspace, mane:${ws}"
@@ -115,7 +152,8 @@
   };
 
   services.awww.enable = true;
-  services.swaylock.enable = true;
+  programs.swaylock.enable = true;
+
   services.hypridle = {
     enable = true;
     settings = {
@@ -146,6 +184,9 @@
       ];
     };
   };
+  xdg.portal.enable = lib.mkForce true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  xdg.configFile."uwsm/env".source = "${config.home.sessionVariablesPackage}/etc/profile.d/hm-session-vars.sh"; # embrace systemd
   systemd.user.services.hypridle = {
     Unit = {
       PartOf = lib.mkForce ["hyprland-session.target"];
