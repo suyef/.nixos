@@ -6,6 +6,7 @@
       ./hardware-configuration.nix
       ./modules/core/boot.nix
       inputs.home-manager.nixosModules.home-manager
+      ./modules/programs/packages.nix
     ];
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;

@@ -9,7 +9,7 @@
       shellAliases = {
         shutdown = "systemctl poweroff";
         reboot = "systemctl reboot";
-	build = "sudo nixos-rebuild switch --flake ~/nixos#tuna";
+	build = "nixos-rebuild switch --flake .#tuna";
       };
     };
     starship = {
@@ -47,7 +47,7 @@
       hostname = {
         disabled = false;
         format = "[$hostname]($style) in ";
-        ssh_only = false;
+        ssh_only = true;
         ssh_symbol = " ";
         style = "bold dimmed red";
       };
@@ -79,7 +79,7 @@
       swift.symbol = " ";
       username = {
         format = " [$user]($style)@";
-        show_always = true;
+        show_always = false;
         style_root = "bold red";
         style_user = "bold red";
       };
