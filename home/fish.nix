@@ -9,7 +9,7 @@
       shellAliases = {
         shutdown = "systemctl poweroff";
         reboot = "systemctl reboot";
-	build = "sudo nixos rebuild switch --flake ~/nixos#tuna"
+	build = "sudo nixos rebuild switch --flake ~/nixos#tuna";
       };
     };
     starship = {
