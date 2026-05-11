@@ -6,7 +6,7 @@
   # etc
     inputs.vicinae.homeManagerModules.default
     ./fish.nix
-    ./hypr/hyprland.nix
+    ./hyprland.nix
     ./vicinae.nix
   ];
 
