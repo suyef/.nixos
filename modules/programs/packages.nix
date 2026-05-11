@@ -33,5 +33,8 @@ in {
     btop
     xdg-desktop-portal
 
+    # the browser
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+
   ];
 }
