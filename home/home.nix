@@ -15,12 +15,14 @@
     homeDirectory = "/home/suyef";
     shell.enableShellIntegration = true;
   };
-  
-  home.file.".config/hypr" = {
-     source = ./config/hypr;
-     recursive = true;
-     forceLink = true;
-  };
+
+# lua config ready to go
+#
+#  home.file."./.config/hypr" = {
+#     source = ./config/hypr;
+#     recursive = true;
+#     force = true;
+#  };
 
   #home.file.".config/kitty" = {
   #  source = ./config/kitty;
