@@ -6,7 +6,7 @@
   # etc
     inputs.vicinae.homeManagerModules.default
     ./fish.nix
-    ./hyprland.nix
+    ./hypr/hyprland.nix
     ./vicinae.nix
   ];
 
@@ -16,11 +16,11 @@
     shell.enableShellIntegration = true;
   };
   
-  #home.file.".config/hypr" = {
-  #   source = ./config/hypr;
-  #   recursive = true;
-  #   forceLink = true;
-  # };
+  home.file.".config/hypr" = {
+     source = ./config/hypr;
+     recursive = true;
+     forceLink = true;
+  };
 
   #home.file.".config/kitty" = {
   #  source = ./config/kitty;
