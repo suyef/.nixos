@@ -17,6 +17,14 @@
     shell.enableShellIntegration = true;
   };
 
+  services = {
+    gpg-agent = {
+      enable = true;
+      pinentry.package = pkgs.kwalletcli;
+      extraConfig = "pinentry-program ${pkgs.kwalletcli}/bin/pinentry-kwallet";
+    };
+  };
+
 # lua config ready to go
 #
 #  home.file."./.config/hypr" = {

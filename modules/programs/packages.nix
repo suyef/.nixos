@@ -29,6 +29,9 @@ in {
     sops
     tor-browser
     kwalletcli
+    gnupg
+    btop
+    xdg-desktop-portal
 
   ];
 }
