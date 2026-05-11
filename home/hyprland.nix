@@ -25,6 +25,7 @@
         kb_layout = "us";
         touchpad = {
           tap-and-drag = true;
+	  natural_scroll = true;
         };
         tablet = {
           output = "current";
@@ -149,6 +150,13 @@
           builtins.concatLists (numWorkspaces ++ fWorkspaces)
       );
     };
+    # todo: convert config to lua
+    extraConfig = ''
+      local hl = require("hyprland")
+      hl.config({
+	
+      })
+    '';
   };
 
   services.awww.enable = true;
