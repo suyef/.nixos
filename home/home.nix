@@ -6,6 +6,7 @@
   # etc
     inputs.vicinae.homeManagerModules.default
     ./fish.nix
+  #  ./stylix.nix
     ./hyprland.nix
     ./vicinae.nix
   ];
@@ -29,10 +30,16 @@
   #  recursive = true;
   #};
 
+  home.file.".config/matugen" = {
+    source = ./config/matugen;
+    recursive = true;
+  };
+
   #programs.neovim.enable = true;
-  #home.packages = with pkgs; [
-  #  neovim
-  #];
+  home.packages = with pkgs; [
+    matugen
+    opencode
+  ];
   
   programs.home-manager.enable = true;
   programs.git.enable = true;

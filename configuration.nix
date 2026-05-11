@@ -6,7 +6,9 @@
       ./hardware-configuration.nix
       ./modules/core/boot.nix
       inputs.home-manager.nixosModules.home-manager
+      inputs.sops-nix.nixosModules.sops
       ./modules/programs/packages.nix
+      ./modules/desktop/fonts.nix
     ];
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
@@ -66,6 +68,24 @@
     pulse.enable = true;
   };
 
+  sops.defaultSopsFile = ./secrets/secrets.yaml;
+  sops.defaultSopsFormat = "yaml";
+  sops.age.keyFile = "/home/suyef/.config/sops/age/keys.txt";
+
+  security = {
+    pam = {
+      services = {
+        "suyef" = {
+	  kwallet = {
+	    enable = true;
+	    package = pkgs.kdePackages.kwallet-pam;
+	  };
+
+	};
+      };
+    };
+  };
+  
   # enable to make swaylock work
   security.pam.services.swaylock = {};
 

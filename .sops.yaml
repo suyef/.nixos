@@ -1,0 +1,10 @@
+# SOPS configuration for NixOS secrets
+# Age public key from ~/.nixos/secrets/identity.age
+keys:
+  - &suyef age1nqhxevlnc8wx4a9zdk8mgs7ds0fpydmva5w50uphq4kdcja2zqcque43jw
+
+creation_rules:
+  - path_regex: secrets/secrets.yaml$
+    key_groups:
+      - age:
+          - *suyef

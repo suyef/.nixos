@@ -28,6 +28,7 @@ in {
     signal-desktop
     sops
     tor-browser
+    kwalletcli
 
   ];
 }

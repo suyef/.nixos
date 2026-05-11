@@ -20,19 +20,30 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
+    stylix,
     ...
   } @ inputs: let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {inherit system;};
   in {
     nixosConfigurations = {
       tuna = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
-        modules = [./configuration.nix];
+        modules = [
+	stylix.nixosModules.stylix
+	./configuration.nix
+
+	];
       };
     };
   
