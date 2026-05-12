@@ -9,6 +9,7 @@
       inputs.sops-nix.nixosModules.sops
       ./modules/programs/packages.nix
       ./modules/desktop/fonts.nix
+      ./modules/desktop/wayland.nix
     ];
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;

@@ -166,6 +166,10 @@
     };
   };
 
+
+  xdg.configFile."uwsm/env".source = "${config.home.sessionVariablesPackage}/etc/profile.d/hm-session-vars.sh"; # embrace systemd
+
+
   services.awww.enable = true;
   programs.swaylock.enable = true;
 
