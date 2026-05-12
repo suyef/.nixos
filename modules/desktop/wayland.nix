@@ -98,7 +98,7 @@ pkgs,
   environment.etc = {
     # https://github.com/Scrut1ny/Hypervisor-Phantom
     "ovmf" = {
-      source = ../../config/ovmf;
+      source = ../../home/config/ovmf;
     };
   };
 }
