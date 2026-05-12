@@ -26,6 +26,11 @@
   # channels are dead and flakes have killed them
   nix.channel.enable = false;
   
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+  };
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 

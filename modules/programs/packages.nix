@@ -32,6 +32,8 @@ in {
     gnupg
     btop
     xdg-desktop-portal
+    wl-clipboard-rs
+    brightnessctl
 
     # the browser
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default

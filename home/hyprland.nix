@@ -103,6 +103,15 @@
         "$mod, Q, killactive"
         "$mod, S, exec, signal-desktop"
         "$mod, O, togglefloating"
+	"$mod SHIFT, I, togglesplit"
+	", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"
+        ", XF86AudioLowerVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"
+	", XF86MonBrightnessUp, exec, brightnessctl set 10%+"
+        ", XF86MonBrightnessDown, exec, brightnessctl set 10%-"
+	", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+	", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+	", XF86WLAN, exec, nmcli radio wifi toggle"
+	", XF86Refresh, exec, xdotool key F5"
         "$mod, C, exec, vicinae deeplink vicinae://extensions/vicinae/clipboard/history"
         "$mod SHIFT CTRL, L, exec, swaylock"
         "$mod, F, fullscreen"
@@ -115,6 +124,11 @@
         "$mod SHIFT, L, movewindow, r"
         "$mod SHIFT, K, movewindow, u"
         "$mod SHIFT, J, movewindow, d"
+
+        "$mod SHIFT, right, resizeactive, 10 0"
+        "$mod SHIFT, left, resizeactive, -10 0"
+        "$mod SHIFT, up, resizeactive, 0 -10"
+        "$mod SHIFT, down, resizeactive, 0 10"
       ]
       ++ (
         let
@@ -185,9 +199,6 @@
       ];
     };
   };
-  xdg.portal.enable = lib.mkForce true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  xdg.configFile."uwsm/env".source = "${config.home.sessionVariablesPackage}/etc/profile.d/hm-session-vars.sh"; # embrace systemd
   systemd.user.services.hypridle = {
     Unit = {
       PartOf = lib.mkForce ["hyprland-session.target"];
