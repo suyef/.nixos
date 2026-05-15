@@ -3,6 +3,11 @@ reload_apps = true
 set_wallpaper = true
 wallpaper_tool = 'awww'
 
+
 [templates.kitty]
 input_path = "~/.config/matugen/templates/kitty.conf"
 output_path = "~/.config/kitty/theme.conf"
+
+[templates.cava]
+input_path = '~/.config/matugen/templates/matugen-cava'
+output_path = "~/.config/cava/config"

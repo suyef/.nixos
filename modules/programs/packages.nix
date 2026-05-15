@@ -34,6 +34,8 @@ in {
     xdg-desktop-portal
     wl-clipboard-rs
     brightnessctl
+    prismlauncher
+    gurk-rs
 
     # the browser
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default

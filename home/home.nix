@@ -5,10 +5,13 @@
   # ./mango.nix
   # etc
     inputs.vicinae.homeManagerModules.default
+    inputs.stylix.homeModules.default
+    inputs.ags.homeManagerModules.default
     ./fish.nix
-  #  ./stylix.nix
+    ./stylix.nix
     ./hyprland.nix
     ./vicinae.nix
+    ./ags.nix
   ];
 
   home = {
@@ -43,10 +46,17 @@
     recursive = true;
   };
 
+  home.file."Pictures/wallpapers" = {
+    source = ./config/wallpapers;
+    recursive = true;
+  };
+
   #programs.neovim.enable = true;
   home.packages = with pkgs; [
     matugen
     opencode
+    inputs.astal.packages.${pkgs.system}.notifd
+    apple-cursor
   ];
   
   programs.home-manager.enable = true;

@@ -2,11 +2,10 @@
 {
   stylix = {
     enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-hard.yaml";
     polarity = "dark";
     
-    #TODO write a script that automatically symlinks ~/.activewall to whatever wallpaper awww has set 
-    image = ./config/wallpapers/Cat_at_Play.png;
+    #image = ./config/wallpapers/Cat_at_Play.png;
 
     opacity = {
       applications = 0.8;
@@ -43,7 +42,8 @@
       };
     };
     cursor = {
-      name = "Bibata-Modern-Ice";
+      package = pkgs.apple-cursor;
+      name = "apple-cursor";
       size = 32;
     };
   };

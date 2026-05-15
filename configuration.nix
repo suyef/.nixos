@@ -8,6 +8,7 @@
       inputs.home-manager.nixosModules.home-manager
       inputs.sops-nix.nixosModules.sops
       ./modules/programs/packages.nix
+      ./modules/programs/steam.nix
       ./modules/desktop/fonts.nix
       ./modules/desktop/wayland.nix
     ];
@@ -52,17 +53,6 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
-
-  services.xserver.enable = true;
-
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
-
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
   services.printing.enable = false;
 
   services.pulseaudio.enable = false;

@@ -164,6 +164,9 @@
           builtins.concatLists (numWorkspaces ++ fWorkspaces)
       );
     };
+    extraConfig = ''
+      exec-once = ags run ~/nixos/home/config/ags/app.tsx
+    '';
   };
 
 
