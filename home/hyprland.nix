@@ -97,8 +97,8 @@
 
         "$mod, B, exec, zen"
         "$mod, Return, exec, kitty"
-        ", Print, exec, ${pkgs.hyprshot}/bin/hyprshot -m active"
-        "SHIFT, Print, exec, ${pkgs.hyprshot}/bin/hyprshot -m region"
+        ", Print, exec, ${pkgs.hyprshot}/bin/hyprshot -m region"
+        "SHIFT, Print, exec, ${pkgs.hyprshot}/bin/hyprshot -m active"
         "$mod, X, exec, vicinae open"
         "$mod, Q, killactive"
         "$mod, S, exec, signal-desktop"
@@ -165,7 +165,15 @@
       );
     };
     extraConfig = ''
-      exec-once = ags run ~/nixos/home/config/ags/app.tsx
+      env = XCURSOR_THEME, macOS
+      env = XCURSOR_SIZE,24
+      env = HYPRCURSOR_THEME, macOS
+      env = HYPRCURSOR_SIZE,24
+      exec-once = hyprctl setcursor macOS 24
+      exec-once = wayle panel start
+      cursor {
+      	enable_hyprcursor = false;
+      }
     '';
   };
 

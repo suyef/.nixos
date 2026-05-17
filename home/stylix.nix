@@ -43,8 +43,8 @@
     };
     cursor = {
       package = pkgs.apple-cursor;
-      name = "apple-cursor";
-      size = 32;
+      name = "macOS";
+      size = 24;
     };
   };
 }

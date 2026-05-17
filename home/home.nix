@@ -51,12 +51,15 @@
     recursive = true;
   };
 
+
   #programs.neovim.enable = true;
   home.packages = with pkgs; [
     matugen
     opencode
     inputs.astal.packages.${pkgs.system}.notifd
     apple-cursor
+    hyprcursor
+    wayle
   ];
   
   programs.home-manager.enable = true;
