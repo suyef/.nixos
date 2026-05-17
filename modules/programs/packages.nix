@@ -28,7 +28,7 @@ in {
     signal-desktop
     sops
     tor-browser
-    kwalletcli
+    kwallet-query
     gnupg
     btop
     xdg-desktop-portal
