@@ -1,0 +1,46 @@
+[general]
+font-sans = "Cantarell"
+font-mono = "Iosevka Nerd Font Propo"
+[bar]
+scale = 0.65
+location = "bottom"
+bg = "bg-base"
+button-variant = "basic"
+button-label-size = 1.2
+button-rounding = "none"
+
+[[bar.layout]]
+monitor = "*"
+show = true
+left = [
+    "hyprland-workspaces",
+    "media",
+    "cava",
+]
+center = ["clock"]
+right = [
+    "weather",
+    "battery",
+    "bluetooth",
+    "network",
+    "microphone",
+    "volume",
+    "systray",
+    "dashboard",
+]
+[styling.palette]
+bg = "#1d2021"
+surface = "#282828"
+elevated = "#32302f"
+fg-muted = "#ebdbb2"
+primary = "#83a598"
+red = "#fb4934"
+yellow = "#fabd2f"
+green = "#b8bb26"
+blue = "#8ec07c"
+
+[modules.notification]
+popup-position = "bottom-right"
+
+[wallpaper]
+engine-enabled = false 

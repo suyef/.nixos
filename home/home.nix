@@ -51,6 +51,8 @@
     recursive = true;
   };
 
+  home.file.".config/wayle".source = ./config/wayle;
+
 
   #programs.neovim.enable = true;
   home.packages = with pkgs; [
