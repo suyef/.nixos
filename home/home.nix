@@ -23,8 +23,8 @@
   services = {
     gpg-agent = {
       enable = true;
-      pinentry.package = pkgs.kwallet-query;
-      extraConfig = "pinentry-program ${pkgs.kwallet-query}/bin/pinentry-kwallet";
+      pinentry.package = pkgs.pinentry-qt;
+      extraConfig = "pinentry-program ${pkgs.pinentry-qt}/bin/pinentry-qt";
     };
   };
 

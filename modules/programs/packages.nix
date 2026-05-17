@@ -28,7 +28,7 @@ in {
     signal-desktop
     sops
     tor-browser
-    kwallet-query
+    pinentry-qt
     gnupg
     btop
     xdg-desktop-portal
