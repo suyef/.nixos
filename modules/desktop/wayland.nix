@@ -1,7 +1,8 @@
 { 
 pkgs, 
-...
-}: 
+inputs, 
+... 
+}:
 {
  # System-wide MIME associations to ensure consistency with portal usage
 
@@ -40,7 +41,7 @@ pkgs,
     };
 
     extraPortals = with pkgs; [
-      xdg-desktop-portal-hyprland
+      # xdg-desktop-portal-hyprland  # using flake input instead
       # Add xdg-desktop-portal-gtk for Wayland GTK apps (font issues etc.)
       xdg-desktop-portal-gtk
       kdePackages.xdg-desktop-portal-kde
@@ -81,6 +82,8 @@ pkgs,
     enable = true;
     withUWSM = true;
     xwayland.enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
   };
   # hyprlock replaced by quickshell session lock
 

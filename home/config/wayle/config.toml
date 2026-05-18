@@ -32,12 +32,13 @@ right = [
 bg = "#1d2021"
 surface = "#282828"
 elevated = "#32302f"
-fg-muted = "#ebdbb2"
-primary = "#83a598"
+fg = "#ebdbb2"
+fg-muted = "#a89984"
+primary = "#d4be98"
 red = "#fb4934"
 yellow = "#fabd2f"
 green = "#b8bb26"
-blue = "#8ec07c"
+blue = "#83a598"
 
 [modules.notification]
 popup-position = "bottom-right"

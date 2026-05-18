@@ -1,0 +1,10 @@
+{
+  "workspace": {
+    "library": [
+      "/home/suyef/.config/hypr"
+    ]
+  },
+  "diagnostics": {
+    "globals": ["hl"]
+  }
+}

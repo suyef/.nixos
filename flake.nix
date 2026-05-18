@@ -39,6 +39,10 @@
       inputs.astal.follows = "astal";
     };
 
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+    };
+
   };
 
   outputs = {

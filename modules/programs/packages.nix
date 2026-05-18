@@ -36,6 +36,7 @@ in {
     brightnessctl
     prismlauncher
     gurk-rs
+    ratty
 
     # the browser
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
