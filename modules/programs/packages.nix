@@ -37,6 +37,9 @@ in {
     prismlauncher
     gurk-rs
     ratty
+    android-tools
+
+    stm32cubemx
 
     # the browser
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default

@@ -63,7 +63,7 @@ hl.config({
         border_size      = 0,
 
         col              = {
-            active_border   = { colors = { "rgba(d4be986f)", "rgba(d4be986f)" }, angle = 45 },
+            active_border   = { colors = { "rgba(d4be98ee)", "rgba(d4be98ee)" }, angle = 45 },
             inactive_border = "rgba(2828284f)",
         },
 
@@ -135,7 +135,8 @@ hl.config({
 -- See https://wiki.hypr.land/Configuring/Layouts/Master-Layout/ for more
 hl.config({
     master = {
-        new_status = "master",
+	-- kanye
+        new_status = "slave",
 	new_on_top = true,
 	special_scale_factor = 0.95,
     },
@@ -145,7 +146,7 @@ hl.config({
 hl.config({
     scrolling = {
         fullscreen_on_one_column = true,
-	explicit_column_widths = "0.5, 0.6, 1.0",
+	--explicit_column_widths = "0.5, 0.6, 1.0",
 	column_width = 0.6,
 	follow_min_visible = 1.0,
 	focus_fit_method = 0,
@@ -199,12 +200,12 @@ local main_mod = "SUPER"
 hl.bind(main_mod .. " + Return", hl.dsp.exec_cmd(terminal))
 hl.bind(main_mod .. " + Q", hl.dsp.window.close())
 hl.bind(main_mod .. " + SHIFT + M",
-    hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(main_mod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(main_mod .. " + O", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(main_mod .. " + X", hl.dsp.exec_cmd(menu))
 hl.bind(main_mod .. " + P", hl.dsp.window.pseudo())
-hl.bind(main_mod .. " + B", hl.dsp.exec_cmd(browser))
+hl.bind(main_mod .. " + W", hl.dsp.exec_cmd(browser))
 hl.bind(main_mod .. " + SHIFT + CTRL + L", hl.dsp.exec_cmd("swaylock"))
 
 -- Move focus with main_mod + arrow keys
@@ -212,6 +213,18 @@ hl.bind(main_mod .. " + h", hl.dsp.focus({ direction = "left" }))
 hl.bind(main_mod .. " + l", hl.dsp.focus({ direction = "right" }))
 hl.bind(main_mod .. " + k", hl.dsp.focus({ direction = "up" }))
 hl.bind(main_mod .. " + j", hl.dsp.focus({ direction = "down" }))
+
+-- Move workspaces around
+hl.bind(main_mod .. " + SHIFT + H", hl.dsp.window.swap({ direction = "left" }))
+hl.bind(main_mod .. " + SHIFT + L", hl.dsp.window.swap({ direction = "right" }))
+hl.bind(main_mod .. " + SHIFT + K", hl.dsp.window.swap({ direction = "up" }))
+hl.bind(main_mod .. " + SHIFT + J", hl.dsp.window.swap({ direction = "down" }))
+
+hl.bind(main_mod .. " + F", hl.dsp.window.fullscreen())
+hl.bind(main_mod .. " + SHIFT + I", hl.dsp.layout("togglesplit"))
+
+hl.bind(main_mod .. " + SHIFT + U", hl.dsp.window.move({ workspace = "special" }))
+hl.bind(main_mod .. " + U", hl.dsp.workspace.toggle_special("magic"))
 
 -- Switch workspaces with main_mod + [0-9]
 -- Move active window to a workspace with main_mod + SHIFT + [0-9]
@@ -226,8 +239,16 @@ hl.bind(main_mod .. " + TAB", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(main_mod .. " + SHIFT + TAB", hl.dsp.focus({ workspace = "e-1" }))
 
 -- Move/resize windows with main_mod + LMB/RMB and dragging
-hl.bind(main_mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
-hl.bind(main_mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+--hl.bind(main_mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
+--hl.bind(main_mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+
+hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true })
+hl.bind("SUPER + CTRL + L", hl.dsp.window.drag(), { mouse = true })
+
+hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true })
+hl.bind("SUPER + ALT + L", hl.dsp.window.resize(), { mouse = true })
+
+
 
 -- Laptop multimedia keys for volume and LCD brightness
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
@@ -241,6 +262,10 @@ hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURC
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true })
 
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true })
+hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"), { locked = true })
+hl.bind("XF86WLAN", hl.dsp.exec_cmd("nmcli radio wifi toggle"), { locked = true })
+hl.bind("XF86Refresh", hl.dsp.exec_cmd("xdotool key F5"), { locked = true })
 
 -- Requires playerctl
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
@@ -252,6 +277,29 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true 
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
 --------------------------------
+
+
+-- Define layouts
+local layouts = { "dwindle", "master", "scrolling" }
+local current_layout_index = 1
+
+-- Cycle function
+local function cycle_layouts()
+    current_layout_index = (current_layout_index % #layouts) + 1
+    local new_layout = layouts[current_layout_index]
+    
+    -- Update the global layout setting
+    hl.config({
+        general = {
+            layout = new_layout
+        }
+    })
+    
+    -- wip notification
+    --hl.exec("notify-send 'Layout switched to: " .. new_layout .. "'")
+end
+
+hl.bind(main_mod .. "+ CTRL + TAB", cycle_layouts)
 
 -- See https://wiki.hypr.land/Configuring/Basics/Window-Rules/
 -- and https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/

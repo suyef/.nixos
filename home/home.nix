@@ -11,7 +11,7 @@
     ./stylix.nix
     ./hyprland.nix
     ./vicinae.nix
-    ./ags.nix
+   # ./ags.nix
   ];
 
   home = {
@@ -62,10 +62,12 @@
     apple-cursor
     hyprcursor
     wayle
+    nix-alien
   ];
   
   programs.home-manager.enable = true;
   programs.git.enable = true;
 
-  home.stateVersion = "25.11";
+  #home.stateVersion = "25.11";
+  home.stateVersion = "26.05";
 }
