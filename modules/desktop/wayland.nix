@@ -1,6 +1,7 @@
 { 
 pkgs, 
 inputs, 
+lib,
 ... 
 }:
 {
@@ -30,6 +31,18 @@ inputs,
         "org.freedesktop.impl.portal.FileChooser" = "kde";
         "org.freedesktop.impl.portal.OpenURI" = "kde";
       };
+      niri = lib.mkForce {
+        default = [
+          "gnome"
+          "gtk"
+          "kde"
+        ];
+        "org.freedesktop.impl.portal.Access" = "gtk";
+        "org.freedesktop.impl.portal.FileChooser" = "kde";
+        "org.freedesktop.impl.portal.Notification" = "gtk";
+        "org.freedesktop.impl.portal.OpenURI" = "kde";
+        "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
+      };
       plasma = {
         default = [
           "kde"
@@ -41,10 +54,11 @@ inputs,
     };
 
     extraPortals = with pkgs; [
-      # xdg-desktop-portal-hyprland  # using flake input instead
-      # Add xdg-desktop-portal-gtk for Wayland GTK apps (font issues etc.)
+      #xdg-desktop-portal-hyprland
       xdg-desktop-portal-gtk
       kdePackages.xdg-desktop-portal-kde
+      #kdePackages.kwallet
+      xdg-desktop-portal-gnome
     ];
   };
 
@@ -85,7 +99,17 @@ inputs,
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
   };
-  # hyprlock replaced by quickshell session lock
+
+  programs.niri = {
+    enable = true;
+    useNautilus = false;
+  };
+
+  environment.systemPackages = with pkgs; [
+    niri
+    niriswitcher
+    xwayland-satellite
+  ];
 
   services.xserver.xkb = {
     layout = "us";

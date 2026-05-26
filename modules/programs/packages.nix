@@ -37,6 +37,7 @@ in {
     prismlauncher
     gurk-rs
     ratty
+    ghostty
     android-tools
 
     stm32cubemx

@@ -205,7 +205,7 @@ hl.bind(main_mod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(main_mod .. " + O", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(main_mod .. " + X", hl.dsp.exec_cmd(menu))
 hl.bind(main_mod .. " + P", hl.dsp.window.pseudo())
-hl.bind(main_mod .. " + W", hl.dsp.exec_cmd(browser))
+hl.bind(main_mod .. " + B", hl.dsp.exec_cmd(browser))
 hl.bind(main_mod .. " + SHIFT + CTRL + L", hl.dsp.exec_cmd("swaylock"))
 
 -- Move focus with main_mod + arrow keys

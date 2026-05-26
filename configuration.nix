@@ -11,6 +11,7 @@
       ./modules/programs/steam.nix
       ./modules/desktop/fonts.nix
       ./modules/desktop/wayland.nix
+      ./modules/desktop/dms.nix
     ];
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;

@@ -5,10 +5,10 @@
   # ./mango.nix
   # etc
     inputs.vicinae.homeManagerModules.default
-    inputs.stylix.homeModules.default
+    #inputs.stylix.homeModules.default
     inputs.ags.homeManagerModules.default
     ./fish.nix
-    ./stylix.nix
+    #./stylix.nix
     ./hyprland.nix
     ./vicinae.nix
    # ./ags.nix
@@ -36,15 +36,20 @@
      force = true;
   };
 
+  #home.file."./.config/niri" = {
+  #  source = ./config/niri;
+  #  recursive = true;
+  #};
+
   #home.file.".config/kitty" = {
   #  source = ./config/kitty;
   #  recursive = true;
   #};
 
-  home.file.".config/matugen" = {
-    source = ./config/matugen;
-    recursive = true;
-  };
+  #home.file.".config/matugen" = {
+  #  source = ./config/matugen;
+  #  recursive = true;
+  #};
 
   home.file."Pictures/wallpapers" = {
     source = ./config/wallpapers;
@@ -56,12 +61,12 @@
 
   #programs.neovim.enable = true;
   home.packages = with pkgs; [
-    matugen
+    #matugen
     opencode
     inputs.astal.packages.${pkgs.system}.notifd
     apple-cursor
     hyprcursor
-    wayle
+    #wayle
     nix-alien
   ];
   

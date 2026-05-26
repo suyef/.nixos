@@ -176,6 +176,26 @@
         "type": "github"
       }
     },
+    "dms-plugin-registry": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1779676562,
+        "narHash": "sha256-Jv3mFCsTEWfPsWCSyx6wzSbYAGuhQmIIaUO6qmQX1CI=",
+        "owner": "AvengeMedia",
+        "repo": "dms-plugin-registry",
+        "rev": "c021449c5f98f444bc6625e68d5616b71798a5dd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AvengeMedia",
+        "repo": "dms-plugin-registry",
+        "type": "github"
+      }
+    },
     "firefox-gnome-theme": {
       "flake": false,
       "locked": {
@@ -869,6 +889,7 @@
       "inputs": {
         "ags": "ags",
         "astal": "astal",
+        "dms-plugin-registry": "dms-plugin-registry",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "nix-alien": "nix-alien",
