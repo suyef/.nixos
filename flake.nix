@@ -4,19 +4,28 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
-
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
     vicinae = {
       url = "github:vicinaehq/vicinae";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     vicinae-extensions = {
       url = "github:vicinaehq/extensions";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-facter-modules.url = "github:nix-community/nixos-facter-modules";
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -29,21 +38,10 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    astal = {
-      url = "github:aylur/astal";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    ags = {
-      url = "github:aylur/ags";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.astal.follows = "astal";
-    };
-
     nix-alien = {
       url = "github:thiagokokada/nix-alien";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     hyprland = {
       url = "github:hyprwm/Hyprland";
     };
@@ -53,17 +51,17 @@
     };
   };
 
-  outputs = {
+  outputs = inputs @ {
     self,
     nixpkgs,
-    home-manager,
-    stylix,
     ...
-  } @ inputs: let
+  }: let
     system = "x86_64-linux";
     pkgs = import nixpkgs {inherit system;};
+    lib = import ./lib/mkHost.nix {inherit inputs;};
   in {
     nixosModules = {
+      nix-file-overlay = ./modules/nix-file-overlay;
       dreamingoptimal = ./modules/dreamingoptimal;
       dreamingoptimal-ram = ./modules/dreamingoptimal/ram.nix;
       dreamingoptimal-tmp = ./modules/dreamingoptimal/tmp.nix;
@@ -73,24 +71,19 @@
       dreamingoptimal-bpftune = ./modules/dreamingoptimal/bpftune.nix;
       dreamingoptimal-cachykernel = ./modules/dreamingoptimal/cachykernel.nix;
       dreamingoptimal-fstrim = ./modules/dreamingoptimal/fstrim.nix;
-      dreamingoptimal-envfs = ./modules/dreamingoptimal/envfs.nix;
+      dreamingoptimal-envfs = ./modules/dreamingoptimal/envfs.nix;     
     };
 
-    nixosConfigurations = {
-      tuna = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
-	stylix.nixosModules.stylix
-	./configuration.nix
-	];
-      };
+    hmModules = {
+      nix-file-overlay = ./modules/nix-file-overlay/hm-module.nix;
     };
-  
-    homeConfigurations = {
-      "suyef" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs;};
-        modules = [./home/home.nix];
+    nixosConfigurations = {
+      tuna = lib.mkHost {
+        hostname = "tuna";
+	hostPath = "tuna";
+	extraModules = [
+	  # ./modules/programs/virtualization
+	];
       };
     };
   };

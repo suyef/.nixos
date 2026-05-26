@@ -6,7 +6,7 @@
   # etc
     inputs.vicinae.homeManagerModules.default
     #inputs.stylix.homeModules.default
-    inputs.ags.homeManagerModules.default
+  #  inputs.ags.homeManagerModules.default
     ./fish.nix
     #./stylix.nix
     ./hyprland.nix
@@ -63,11 +63,10 @@
   home.packages = with pkgs; [
     #matugen
     opencode
-    inputs.astal.packages.${pkgs.system}.notifd
     apple-cursor
     hyprcursor
     #wayle
-    nix-alien
+    #nix-alien
   ];
   
   programs.home-manager.enable = true;

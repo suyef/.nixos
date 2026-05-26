@@ -24,7 +24,13 @@
 in {
   programs = {};
 
+  programs.fish.enable = true;
+
   environment.systemPackages = with pkgs; [
+    git
+    wget
+    kitty
+    vis
     signal-desktop
     sops
     tor-browser

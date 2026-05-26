@@ -48,13 +48,6 @@
       "@knoopx/nix-0" = {
         entrypoints.flake-packages.enabled = true;
       };
-      "@marcjulian/store.raycast.obsidian" = {
-        preferences = {
-          removeLatex = false;
-          removeLinks = false;
-          removeYAML = false;
-          vaultPath = "/home/dreamingcodes/Documents/Obsidian Vault";
-        };
         entrypoints = {
           appendTaskCommand.enabled = false;
           dailyNoteAppendCommand.enabled = false;
@@ -63,8 +56,7 @@
           openWorkspaceCommand.enabled = false;
           randomNoteCommand.enabled = false;
           searchMedia.enabled = false;
-        };
-      };
+        }; 
       "@ratoru/store.raycast.google-maps-search" = {
         preferences = {
           preferredMode = "driving";
@@ -88,7 +80,7 @@
           documentation.enabled = false;
           keybind-settings.enabled = false;
           list-extensions.enabled = false;
-          open-config-file.enabled = false;
+	  open-config-file.enabled = false;
           open-default-config.enabled = false;
           report-bug.enabled = false;
           sponsor.enabled = false;
