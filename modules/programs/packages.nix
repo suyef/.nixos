@@ -30,6 +30,7 @@ in {
     git
     wget
     kitty
+    neovim
     vis
     signal-desktop
     sops
@@ -46,7 +47,11 @@ in {
     ghostty
     android-tools
 
+    # sin
     stm32cubemx
+    vscodium
+
+    yazi
 
     # the browser
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default

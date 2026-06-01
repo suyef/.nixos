@@ -112,6 +112,6 @@
       enableFishIntegration = true;
     };
     #kitty.enable = true;
-    neovim.enable = true;
+    #neovim.enable = true;
   };
 }

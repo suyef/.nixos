@@ -1,17 +1,9 @@
 { lib, config, pkgs, inputs, ... }: {
   imports = [
-  # inputs.___.homeManagerModule
-  # ./nvim.nix
-  # ./mango.nix
-  # etc
-    inputs.vicinae.homeManagerModules.default
-    #inputs.stylix.homeModules.default
-  #  inputs.ags.homeManagerModules.default
+ # ./nvim.nix
     ./fish.nix
-    #./stylix.nix
     ./hyprland.nix
     ./vicinae.nix
-   # ./ags.nix
   ];
 
   home = {
@@ -28,26 +20,21 @@
     };
   };
 
-# lua config ready to go
-#
+ # lua config ready to go
+
   home.file."./.config/hypr" = {
      source = ./config/hypr;
      recursive = true;
      force = true;
   };
 
-  #home.file."./.config/niri" = {
-  #  source = ./config/niri;
-  #  recursive = true;
-  #};
+  home.file."./.config/niri" = {
+    source = ./config/niri;
+    recursive = true;
+  };
 
   #home.file.".config/kitty" = {
   #  source = ./config/kitty;
-  #  recursive = true;
-  #};
-
-  #home.file.".config/matugen" = {
-  #  source = ./config/matugen;
   #  recursive = true;
   #};
 
@@ -56,22 +43,15 @@
     recursive = true;
   };
 
-  home.file.".config/wayle".source = ./config/wayle;
-
-
   #programs.neovim.enable = true;
   home.packages = with pkgs; [
-    #matugen
     opencode
     apple-cursor
     hyprcursor
-    #wayle
-    #nix-alien
   ];
   
   programs.home-manager.enable = true;
   programs.git.enable = true;
 
-  #home.stateVersion = "25.11";
   home.stateVersion = "26.05";
 }
