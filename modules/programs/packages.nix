@@ -32,29 +32,45 @@ in {
     kitty
     neovim
     vis
+
     signal-desktop
+    nheko
+
+    (discord.override {
+      withOpenASAR = true;
+    })
+
     sops
     tor-browser
     pinentry-qt
     gnupg
     btop
     xdg-desktop-portal
+
     wl-clipboard-rs
+    wl-clip-persist
+
     brightnessctl
     prismlauncher
     gurk-rs
     ratty
     ghostty
+    foot
     android-tools
 
     # sin
     stm32cubemx
-    vscodium
+    vscode 
 
     yazi
 
     # the browser
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+
+    bun
+    rustup
+    ffmpeg
+    uv
 
   ];
 }

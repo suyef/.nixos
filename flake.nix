@@ -66,6 +66,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     #inputs.stm32cubeide.url = "git+https://git.sr.ht/~shelvacu/stm32cubeide-nix";
+    nixvim = {
+      url = "github:nix-community/nixvim";
+    };
   };
 
   outputs = inputs @ {

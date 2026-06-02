@@ -1,6 +1,7 @@
 { lib, config, pkgs, inputs, ... }: {
   imports = [
- # ./nvim.nix
+    inputs.nixvim.homeManagerModules.nixvim
+    #./nvim.nix
     ./fish.nix
     ./hyprland.nix
     ./vicinae.nix
