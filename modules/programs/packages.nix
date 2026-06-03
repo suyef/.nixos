@@ -56,11 +56,13 @@ in {
     ratty
     ghostty
     foot
+    alacritty
     android-tools
 
     # sin
     stm32cubemx
     vscode 
+    zed
 
     yazi
 
