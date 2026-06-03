@@ -103,7 +103,7 @@
         hostname = "tuna";
 	hostPath = "tuna";
 	extraModules = [
-	  # ./modules/programs/virtualization
+	  ./modules/programs/virtualization
 	];
       };
     };

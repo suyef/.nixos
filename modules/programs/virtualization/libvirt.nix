@@ -38,15 +38,16 @@ in {
     qemu = {
       runAsRoot = true;
       swtpm.enable = true;
-      ovmf = {
-        enable = true;
-        packages = [pkgs.OVMFFull.fd];
-      };
-      verbatimConfig = ''
-        nvram = [
-          "/run/libvirt/nix-ovmf/OVMF_VARS.fd"
-        ]
-      '';
+      # ovmf submodule removed in newer nixpkgs; OVMF available by default
+      # ovmf = {
+      #   enable = true;
+      #   packages = [pkgs.OVMFFull.fd];
+      # };
+      # verbatimConfig = ''
+      #   nvram = [
+      #     "/run/libvirt/nix-ovmf/OVMF_VARS.fd"
+      #   ]
+      # '';
     };
   };
 

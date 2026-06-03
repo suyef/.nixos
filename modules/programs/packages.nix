@@ -34,7 +34,7 @@ in {
     vis
 
     signal-desktop
-    nheko
+    #nheko
 
     (discord.override {
       withOpenASAR = true;
