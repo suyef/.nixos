@@ -69,6 +69,11 @@
     nixvim = {
       url = "github:nix-community/nixvim";
     };
+
+    neu-nix = {
+      url = "github:ricardomaps/neu-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {

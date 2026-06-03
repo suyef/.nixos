@@ -1,5 +1,8 @@
-{ config, pkgs, lib, ... }:
+{ config, inputs, pkgs, lib, ... }:
 {
+  imports = [
+    inputs.nixvim.homeManagerModules.nixvim
+  ];
   programs.nixvim = {
     enable = true;
     nixpkgs.config.allowUnfree = true;

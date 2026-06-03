@@ -1,7 +1,6 @@
-{ lib, config, pkgs, inputs, ... }: {
+{ pkgs, ... }: {
   imports = [
-    inputs.nixvim.homeManagerModules.nixvim
-    #./nvim.nix
+    ./nvim.nix
     ./fish.nix
     ./hyprland.nix
     ./vicinae.nix
@@ -34,6 +33,11 @@
     recursive = true;
   };
 
+  #home.file."./.config/foot" = {
+  #  source = ./config/foot;
+  #  recursive = true;
+  #};
+
   #home.file.".config/kitty" = {
   #  source = ./config/kitty;
   #  recursive = true;
@@ -53,6 +57,12 @@
   
   programs.home-manager.enable = true;
   programs.git.enable = true;
+
+  home.sessionVariables = {
+    TERMINAL = "kitty";
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+  };
 
   home.stateVersion = "26.05";
 }

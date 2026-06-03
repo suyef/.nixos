@@ -69,8 +69,14 @@ in {
 
     bun
     rustup
+    nodejs # i HATE nodejs!!! 
     ffmpeg
     uv
+
+    foot
+    tmux
+    mako
+    zathura
 
   ];
 }
