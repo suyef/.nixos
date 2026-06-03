@@ -62,7 +62,7 @@ in {
     # sin
     stm32cubemx
     vscode 
-    zed
+    zed-editor
 
     yazi
 
