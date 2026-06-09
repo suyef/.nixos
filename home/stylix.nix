@@ -9,7 +9,7 @@
 
     opacity = {
       applications = 0.8;
-      terminal = 0.9;
+      terminal = 0.5;
       popups = 0.75;
     };
     targets = {
@@ -28,7 +28,7 @@
       };
 
       monospace = {
-        name = "Fira Code";
+        name = "IosevkaCustom";
         package = pkgs.fira-code;
       };
 

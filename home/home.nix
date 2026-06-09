@@ -1,9 +1,10 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
   imports = [
     ./nvim.nix
     ./fish.nix
     ./hyprland.nix
     ./vicinae.nix
+    #./stylix.nix
   ];
 
   home = {
@@ -53,6 +54,7 @@
     opencode
     apple-cursor
     hyprcursor
+    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
   
   programs.home-manager.enable = true;

@@ -65,6 +65,10 @@
       url = "github:AvengeMedia/dms-plugin-registry";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     #inputs.stm32cubeide.url = "git+https://git.sr.ht/~shelvacu/stm32cubeide-nix";
     nixvim = {
       url = "github:nix-community/nixvim";
@@ -72,6 +76,10 @@
 
     neu-nix = {
       url = "github:ricardomaps/neu-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
