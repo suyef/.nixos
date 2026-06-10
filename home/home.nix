@@ -1,6 +1,6 @@
 { pkgs, inputs, ... }: {
   imports = [
-    ./nvim.nix
+    ./nixvim/nvim.nix
     ./fish.nix
     ./hyprland.nix
     ./vicinae.nix
@@ -31,6 +31,11 @@
 
   home.file."./.config/niri" = {
     source = ./config/niri;
+    recursive = true;
+  };
+
+  home.file."./.config/alacritty" = {
+    source = ./config/alacritty;
     recursive = true;
   };
 

@@ -7,8 +7,11 @@
 #  xdg.configFile."uwsm/env".source = "${config.home.sessionVariablesPackage}/etc/profile.d/hm-session-vars.sh"; # embrace systemd
 
 
-  #services.awww.enable = true;
-  #programs.swaylock.enable = true;
+  services.awww.enable = true;
+  programs.swaylock.enable = true;
+
+  services.mako.enable = true;
+
 
   services.hypridle = {
     enable = true;

@@ -53,8 +53,6 @@ in {
     brightnessctl
     prismlauncher
     gurk-rs
-    ratty
-    ghostty
     foot
     alacritty
     android-tools

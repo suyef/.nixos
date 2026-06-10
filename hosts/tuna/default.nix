@@ -42,7 +42,13 @@
 
   boot.kernelModules = ["kvm-amd"];
   # nvidia.NVreg_EnableGpuFirmware=0
-  boot.kernelParams = ["nvidia.NVreg_PreserveVideoMemoryAllocations=1"];
+  boot.kernelParams = [
+    "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+    # amd flicker fixes
+    "amdgpu.dcdebugmask=0x410"
+    "amdgpu.abmlevel=0"
+    "amdgpu.dcfeaturemask=0x2"
+  ];
 
   hardware.nvidia-container-toolkit.enable = true;
 
