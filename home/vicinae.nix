@@ -28,7 +28,7 @@
     favorites = [];
     font = {
       normal = {
-        family = "FiraCode Nerd Font";
+        family = "IosevkaCustom";
       };
     };
     providers = {

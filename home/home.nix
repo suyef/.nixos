@@ -59,14 +59,15 @@
     opencode
     apple-cursor
     hyprcursor
-    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+    waybar
+    #inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
   
   programs.home-manager.enable = true;
   programs.git.enable = true;
 
   home.sessionVariables = {
-    TERMINAL = "kitty";
+    TERMINAL = "alacritty";
     EDITOR = "nvim";
     VISUAL = "nvim";
   };

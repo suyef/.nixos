@@ -18,8 +18,8 @@
     ../modules/programs/steam.nix
     ../modules/programs/packages.nix
     ../modules/users/suyef.nix
-    ../modules/desktop/dms.nix
-   # ../modules/desktop/neu.nix
+    #../modules/desktop/dms.nix
+    #../modules/desktop/neu.nix
   ];
 
   # Timezone and locale (common to all hosts)

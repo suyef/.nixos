@@ -18,7 +18,7 @@
       termguicolors = true;
     };
 
-    colorschemes.gruvbox-material = {
+    colorschemes.base16 = {
       enable = true;
     };
 

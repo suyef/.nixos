@@ -67,11 +67,11 @@ lib,
 
   services.xserver.enable = true;
 
-  services.displayManager.dms-greeter = {
-    enable = true;
-    compositor.name = "niri";
-    configHome = "/home/suyef";
-  };
+  #services.displayManager.dms-greeter = {
+    #enable = true;
+    #compositor.name = "niri";
+    #configHome = "/home/suyef";
+  # };
 
   services.displayManager.defaultSession = "niri";
 

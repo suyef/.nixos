@@ -1,7 +1,7 @@
 [window]
 padding = { x = 16, y = 16 }
 
-opacity = 0.885418782
+#opacity = 0.885418782
 blur = true
 decorations = "Full"
 
@@ -17,7 +17,8 @@ family = "IosevkaCustom"
 family = "IosevkaCustom"
 
 [colors.primary]
-background = '0x3c3836'
+background = '282828ff'
+#background = '0x3c3836'
 foreground =  '0xd4be98'
 [colors.normal]
   black =   '0x3c3836'
