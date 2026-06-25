@@ -17,7 +17,7 @@ family = "IosevkaCustom"
 family = "IosevkaCustom"
 
 [colors.primary]
-background = '282828ff'
+background = '1D202136'
 #background = '0x3c3836'
 foreground =  '0xd4be98'
 [colors.normal]

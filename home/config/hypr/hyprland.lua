@@ -48,7 +48,7 @@ hl.env("WLR_DRM_NO_ATOMIC", "1")
 -----------------------
 
 hl.on("hyprland.start", function ()
-	hl.exec_cmd("wayle panel start")
+	hl.exec_cmd("waybar &")
 end)
 
 -----------------------

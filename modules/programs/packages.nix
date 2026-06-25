@@ -62,6 +62,8 @@ in {
     vscode 
     zed-editor
 
+    openrocket
+
     yazi
 
     # the browser
@@ -72,6 +74,7 @@ in {
     nodejs # i HATE nodejs!!! 
     ffmpeg
     uv
+    jdk
 
     foot
     tmux
