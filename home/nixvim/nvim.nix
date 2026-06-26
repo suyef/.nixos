@@ -128,7 +128,6 @@
               "typescript"
               "typescriptreact"
               "svelte"
-              "vue"
             ];
           };
           svelte.enable = false; # Svelte
@@ -143,12 +142,6 @@
           #   '';
           #   onAttach.override = true;
           # };
-  	vue_ls = {
-  	  enable = true; # Vue
-  	  filetypes = [
-  	    "vue"
-  	  ];
-  	};
           angularls.enable = true; # Angular
           mdx_analyzer = {
             enable = true;
