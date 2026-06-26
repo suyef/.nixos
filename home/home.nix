@@ -4,6 +4,7 @@
     ./fish.nix
     ./hyprland.nix
     ./vicinae.nix
+    ./noctalia.nix
     #./stylix.nix
   ];
 
@@ -21,7 +22,7 @@
     };
   };
 
-  home.file."./.config/hypr" = {
+  home.file."~/.config/hypr" = {
      source = ./config/hypr;
      recursive = true;
      force = true;
