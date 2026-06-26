@@ -20,8 +20,8 @@
 
     colorschemes.base16 = {
       enable = true;
+      colorscheme = "gruvbox-material-dark-hard";
     };
-    colorscheme = "base16-gruvbox-material-dark-hard";
 
     dependencies = {
       chafa.enable = true;

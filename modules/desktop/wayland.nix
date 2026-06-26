@@ -54,11 +54,11 @@ lib,
     };
 
     extraPortals = with pkgs; [
-      #xdg-desktop-portal-hyprland
+      xdg-desktop-portal-hyprland
       xdg-desktop-portal-gtk
       kdePackages.xdg-desktop-portal-kde
-      #kdePackages.kwallet
       xdg-desktop-portal-gnome
+      #kdePackages.kwallet
     ];
   };
 
@@ -67,13 +67,7 @@ lib,
 
   services.xserver.enable = true;
 
-  #services.displayManager.dms-greeter = {
-    #enable = true;
-    #compositor.name = "niri";
-    #configHome = "/home/suyef";
-  # };
-
-  services.displayManager.defaultSession = "niri";
+  services.displayManager.defaultSession = "hyprland";
 
   services.desktopManager.plasma6.enable = true;
   environment.plasma6.excludePackages = with pkgs.kdePackages; [

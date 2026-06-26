@@ -21,8 +21,6 @@
     };
   };
 
- # lua config ready to go
-
   home.file."./.config/hypr" = {
      source = ./config/hypr;
      recursive = true;
@@ -38,16 +36,6 @@
     source = ./config/alacritty;
     recursive = true;
   };
-
-  #home.file."./.config/foot" = {
-  #  source = ./config/foot;
-  #  recursive = true;
-  #};
-
-  #home.file.".config/kitty" = {
-  #  source = ./config/kitty;
-  #  recursive = true;
-  #};
 
   home.file."Pictures/wallpapers" = {
     source = ./config/wallpapers;

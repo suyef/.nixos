@@ -5,15 +5,13 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-hard.yaml";
     polarity = "dark";
     
-    #image = ./config/wallpapers/Cat_at_Play.png;
-
     opacity = {
       applications = 0.8;
       terminal = 0.5;
       popups = 0.75;
     };
     targets = {
-      #neovim.enable = false;
+      neovim.enable = true;
     };
 
     fonts = {
