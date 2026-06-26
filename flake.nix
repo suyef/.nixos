@@ -10,6 +10,7 @@
       "https://attic.xuyh0120.win/lantian?priority=42"
       "https://numtide.cachix.org?priority=43"
       "https://vicinae.cachix.org?priority=44"
+      "https://noctalia.cachix.org?priority=45"
     ];
     extra-trusted-public-keys = [
       "cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM="
@@ -18,6 +19,7 @@
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "numtide.cachix.org-1:2ps1kLBUWjxIneOy1Ik6cQjb41X0iXVXeHigGmycPPE="
       "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc="
+      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
     ];
   };
 
@@ -78,10 +80,10 @@
       url = "github:ricardomaps/neu-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    #noctalia = {
-    #  url = "github:noctalia-dev/noctalia";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
+    noctalia = {
+      url = "github:noctalia-dev/noctalia";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {

@@ -61,7 +61,7 @@
     hyprcursor
     waybar
     eww
-    #inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
   
   programs.home-manager.enable = true;

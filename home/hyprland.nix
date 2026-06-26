@@ -7,18 +7,20 @@
 #  xdg.configFile."uwsm/env".source = "${config.home.sessionVariablesPackage}/etc/profile.d/hm-session-vars.sh"; # embrace systemd
 
 
-  services.awww.enable = true;
-  programs.swaylock.enable = true;
+#disable these to make room for noctalia
 
-  services.mako.enable = true;
+ # services.awww.enable = true;
+ # programs.swaylock.enable = true;
 
-  programs.waybar = {
-    enable = true;
-    systemd = {
-      enable = true;
-      target = "hyprland-session.target";
-    };
-  };
+ # services.mako.enable = true;
+
+ # programs.waybar = {
+ #   enable = true;
+ #   systemd = {
+ #     enable = true;
+ #     target = "hyprland-session.target";
+ #   };
+ # };
   
 
 
@@ -26,8 +28,8 @@
     enable = true;
     settings = {
       general = {
-        lock_cmd = "swaylock";
-        before_sleep_cmd = "swaylock";
+        lock_cmd = "noctalia msg session lock";
+        before_sleep_cmd = "noctalia msg session lock";
         after_sleep_cmd = "hyprctl dispatch dpms on";
       };
       listener = [
