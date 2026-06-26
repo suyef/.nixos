@@ -15,19 +15,20 @@
 	"menuone"
 	"noselect"
       ];
+      #termguicolors = lib.mkForce false;
       termguicolors = true;
+      background = "dark";
     };
 
     colorschemes.base16 = {
       enable = true;
-      colorscheme = "gruvbox-material-dark-hard";
+      colorscheme = lib.mkForce "gruvbox-material-dark-hard";
     };
 
     dependencies = {
       chafa.enable = true;
       imagemagick.enable = true;
     };
-
 
     keymaps =
       let
@@ -299,7 +300,7 @@
       };
   
       transparent = {
-        enable = true;
+        enable = false;
         settings = {
           groups = [
             "Normal"
@@ -530,5 +531,6 @@
         };
       };
     };
+    extraConfigLuaPost = ''vim.cmd [[ colorscheme base16-gruvbox-material-dark-hard ]]'';
   };
 }

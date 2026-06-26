@@ -30,7 +30,6 @@ in {
     git
     wget
     kitty
-    neovim
     vis
 
     signal-desktop
@@ -61,6 +60,10 @@ in {
     stm32cubemx
     vscode 
     zed-editor
+
+    clang
+    llvm
+    gcc
 
     openrocket
 
