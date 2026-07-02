@@ -83,6 +83,7 @@ in {
     tmux
     mako
     zathura
+    flow-control
 
   ];
 }
