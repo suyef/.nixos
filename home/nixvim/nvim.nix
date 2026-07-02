@@ -477,7 +477,6 @@
               disableTsServerFormatter = true;
               settings = {
                 extra_filetypes = [
-                  "vue"
                   "json"
                 ];
                 insert_final_newline = true;
