@@ -1,6 +1,6 @@
 { pkgs, lib, config, inputs, ...}: {
   imports = [ inputs.vicinae.homeManagerModules.default ];
-  services.vicinae = {
+  programs.vicinae = {
     enable = true;
     package = pkgs.vicinae;
     systemd = {
@@ -10,15 +10,7 @@
         USE_LAYER_SHELL = 1;
       };
     };
-    extensions = with inputs.vicinae-extensions.packages.${pkgs.stdenv.hostPlatform.system}; [
-      it-tools
-      nix
-      player-pilot
-      port-killer
-      power-profile
-      process-manager
-      wifi-commander
-    ];
+    extensions = [ ];
   };
 
   # Vicinae base config (read-only, imported by user settings.json)
@@ -47,9 +39,8 @@
         };
       };
       "@knoopx/nix-0" = {
-        entrypoints.flake-packages.enabled = true;
-      };
         entrypoints = {
+          flake-packages.enabled = true;
           appendTaskCommand.enabled = false;
           dailyNoteAppendCommand.enabled = false;
           dailyNoteCommand.enabled = false;
@@ -57,7 +48,8 @@
           openWorkspaceCommand.enabled = false;
           randomNoteCommand.enabled = false;
           searchMedia.enabled = false;
-        }; 
+        };
+      };
       "@ratoru/store.raycast.google-maps-search" = {
         preferences = {
           preferredMode = "driving";

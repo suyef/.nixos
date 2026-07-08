@@ -13,11 +13,10 @@ in {
   mkHost = {
     hostname,
     hostPath,
-    system ? "x86_64-linux",
     extraModules ? [],
   }:
     inputs.nixpkgs.lib.nixosSystem {
-      inherit system;
+      system = "x86_64-linux";
       specialArgs = {
         inherit inputs;
         inherit
