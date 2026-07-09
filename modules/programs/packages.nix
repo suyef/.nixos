@@ -66,6 +66,7 @@ in {
     gcc
 
     openrocket
+    freecad
 
     yazi
 
