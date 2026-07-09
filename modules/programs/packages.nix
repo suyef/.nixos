@@ -84,6 +84,7 @@ in {
     mako
     zathura
     flow-control
+    helix
 
   ];
 }

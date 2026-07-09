@@ -42,6 +42,7 @@
     })
 
     noto-fonts-color-emoji
+    tamzen
     cantarell-fonts
     nerd-fonts.fira-code
   ];

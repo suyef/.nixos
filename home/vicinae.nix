@@ -20,7 +20,7 @@
     favorites = [];
     font = {
       normal = {
-        family = "IosevkaCustom";
+        family = "tamzen";
       };
     };
     providers = {
