@@ -98,7 +98,6 @@
   # asusctl
   services.asusd = {
     enable = true;
-    enableUseerService = true;
   };
 
   hardware.nvidia = {
