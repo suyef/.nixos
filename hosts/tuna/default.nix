@@ -40,6 +40,38 @@
   # Enable cuda support for the dGPU on the laptop
   nixpkgs.config.cudaSupport = true;
 
+  # TODO: Remove this overlay once UCX 1.21.0 GDAKI build issue is fixed upstream
+  # or patched in nixpkgs. See https://github.com/openucx/ucx/issues/11591
+  # The issue: UCX's Makefile.am unconditionally adds gdaki to SUBDIRS even when
+  # --without-gda is passed, causing a build failure due to missing DOCA gpunetio headers.
+  nixpkgs.overlays = [
+    (final: prev: {
+      ucx = prev.ucx.overrideAttrs (old: {
+        configureFlags = (old.configureFlags or []) ++ [
+          "--without-gda"
+        ];
+        postPatch = (old.postPatch or "") + ''
+          # Fix: UCX 1.21.0 unconditionally adds gdaki to SUBDIRS in the parent
+          # Makefile.am, even when --without-gda is passed. This causes make to
+          # enter gdaki/ where it fails on missing DOCA gpunetio headers.
+          # See: https://github.com/openucx/ucx/issues/11591
+          #
+          # Strategy: Remove source files that reference missing DOCA headers,
+          # but KEEP configure.m4 and Makefile.am so autoreconf doesn't fail.
+          # Then replace Makefile.am with a no-op stub.
+          rm -f src/uct/ib/mlx5/gdaki/*.c
+          rm -f src/uct/ib/mlx5/gdaki/*.cuh
+          rm -f src/uct/ib/mlx5/gdaki/*.h
+          rm -rf src/uct/ib/mlx5/gdaki/gpunetio/
+          cat > src/uct/ib/mlx5/gdaki/Makefile.am <<'MKEOF'
+          # Intentionally empty - GDAKI disabled (missing DOCA gpunetio headers)
+          EXTRA_DIST =
+          MKEOF
+        '';
+      });
+    })
+  ];
+
   boot.kernelModules = ["kvm-amd"];
   # nvidia.NVreg_EnableGpuFirmware=0
   boot.kernelParams = [
@@ -62,6 +94,12 @@
     "nvidia"
     "amdgpu"
   ];
+
+  # asusctl
+  services.asusd = {
+    enable = true;
+    enableUseerService = true;
+  };
 
   hardware.nvidia = {
     # Modesetting is required.
