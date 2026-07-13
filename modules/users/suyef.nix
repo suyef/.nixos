@@ -65,7 +65,7 @@ in {
     home-manager.useGlobalPkgs = true;
     home-manager.useUserPackages = true;
     home-manager.extraSpecialArgs = {inherit inputs;};
-    home-manager.backupFileExtension = "hm-backup";
+    home-manager.backupFileExtension = "bak";
 
     home-manager.users.suyef = {
       home.stateVersion = "26.05";
