@@ -124,9 +124,9 @@ hl.animation({ leaf = "workspacesOut", enabled = true, speed = 0.94, bezier = "a
 hl.animation({ leaf = "zoomFactor", enabled = true, speed = 3.4, bezier = "quick" })
 
 hl.window_rule({
-    name      = "zen-on-ws2",
+    name      = "zen-on-ws1",
     match     = { class = "^(zen)$" },
-    workspace = "2 silent"
+    workspace = "1 silent"
 })
 
 hl.config({
@@ -141,7 +141,7 @@ hl.config({
     master = {
 	-- kanye
         new_status = "slave",
-	new_on_top = true,
+	new_on_top = false,
 	special_scale_factor = 0.95,
     },
 })
@@ -228,7 +228,7 @@ hl.bind(main_mod .. " + F", hl.dsp.window.fullscreen())
 hl.bind(main_mod .. " + SHIFT + I", hl.dsp.layout("togglesplit"))
 
 hl.bind(main_mod .. " + SHIFT + U", hl.dsp.window.move({ workspace = "special" }))
-hl.bind(main_mod .. " + U", hl.dsp.workspace.toggle_special("magic"))
+hl.bind(main_mod .. " + U", hl.dsp.workspace.toggle_special("special"))
 
 -- Switch workspaces with main_mod + [0-9]
 -- Move active window to a workspace with main_mod + SHIFT + [0-9]
