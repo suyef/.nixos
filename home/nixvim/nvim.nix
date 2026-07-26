@@ -506,6 +506,14 @@
         };
       };
   
+      vimtex = {
+        enable = true;
+        settings = {
+          view_method = "zathura";
+          vimtexcompiler_method = "latexmk";
+        };
+      };
+
       lint = {
         enable = true;
         lintersByFt = {
