@@ -61,6 +61,8 @@ in {
     vscode 
     zed-editor
 
+    codex
+
     clang
     llvm
     gcc

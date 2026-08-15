@@ -1,10 +1,5 @@
 require("noctalia")
 
-------------------
----- MONITORS ----
-------------------
-
--- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor({
     output   = "eDP-1",
     mode     = "3840x2400@60",
@@ -13,11 +8,10 @@ hl.monitor({
 })
 
 
----------------------
----- MY PROGRAMS ----
----------------------
+----------------------
+-- Default programs --
+----------------------
 
--- Set programs that you use
 local terminal    = "alacritty"
 local fileManager = "dolphin"
 local menu        = "vicinae open"
@@ -59,7 +53,6 @@ end)
 ---- LOOK AND FEEL ----
 -----------------------
 
--- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
     general = {
         gaps_in          = 0,
@@ -81,11 +74,8 @@ hl.config({
     decoration = {
         rounding         = 0,
         rounding_power   = 0,
-
-        -- Change transparency of focused and unfocused windows
         active_opacity   = 1.0,
         inactive_opacity = 1.0,
-
         blur             = {
             enabled  = true,
             size     = 8,
@@ -93,9 +83,8 @@ hl.config({
             vibrancy = 0.1696,
         },
     },
-
     animations = {
-        enabled = false,
+        enabled = true,
     },
 })
 
@@ -136,7 +125,6 @@ hl.config({
     },
 })
 
--- See https://wiki.hypr.land/Configuring/Layouts/Master-Layout/ for more
 hl.config({
     master = {
 	-- kanye
@@ -146,7 +134,6 @@ hl.config({
     },
 })
 
--- See https://wiki.hypr.land/Configuring/Layouts/Scrolling-Layout/ for more
 hl.config({
     scrolling = {
         fullscreen_on_one_column = true,
@@ -177,11 +164,10 @@ hl.config({
         kb_options   = "",
         kb_rules     = "",
 
-        -- infamous xset r rate 200 35;
         repeat_rate  = 35,
         repeat_delay = 200,
         follow_mouse = 1,
-        sensitivity  = 0, -- -1.0 - 1.0, 0 means no modification.
+        sensitivity  = 0,
         touchpad     = {
             natural_scroll = true,
         },
@@ -201,7 +187,8 @@ hl.gesture({
 
 local main_mod = "SUPER" 
 
-hl.bind(main_mod .. " + Return", hl.dsp.exec_cmd(terminal))
+hl.bind(main_mod .. " + SPACE", hl.dsp.exec_cmd(terminal))
+hl.bind("SUPER + SHIFT + F23", hl.dsp.exec_cmd(menu))
 hl.bind(main_mod .. " + Q", hl.dsp.window.close())
 hl.bind(main_mod .. " + SHIFT + M",
 hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
