@@ -54,7 +54,15 @@
   ];
   
   programs.home-manager.enable = true;
-  programs.git.enable = true;
+  programs.git = {
+    enable = true;
+    userName = "suyef";
+    userEmail = "yusefray@proton.me";
+    extraConfig = {
+      init.defaultBranch = "main";
+      safe.directory = "/home/suyef/.nixos";
+    };
+  };
 
   home.sessionVariables = {
     TERMINAL = "alacritty";
