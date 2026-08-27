@@ -20,77 +20,77 @@
     favorites = [];
     font = {
       normal = {
-        family = "tamzen";
+        family = "cantarell";
       };
     };
-    providers = {
-      "@Gelei/bluetooth-0" = {
-        preferences.connectionToggleable = true;
-      };
-      "@gebeto/store.raycast.translate" = {
-        preferences.autoInput = true;
-        entrypoints = {
-          instant-translate-copy.enabled = false;
-          instant-translate-paste.enabled = false;
-          instant-translate-view.enabled = false;
-          quick-translate.enabled = true;
-          translate.enabled = false;
-          translate-form.enabled = false;
-        };
-      };
-      "@knoopx/nix-0" = {
-        entrypoints = {
-          flake-packages.enabled = true;
-          appendTaskCommand.enabled = false;
-          dailyNoteAppendCommand.enabled = false;
-          dailyNoteCommand.enabled = false;
-          openVaultCommand.enabled = false;
-          openWorkspaceCommand.enabled = false;
-          randomNoteCommand.enabled = false;
-          searchMedia.enabled = false;
-        };
-      };
-      "@ratoru/store.raycast.google-maps-search" = {
-        preferences = {
-          preferredMode = "driving";
-          preferredOrigin = "home";
-          useSelected = true;
-        };
-        entrypoints = {
-          find.enabled = false;
-          quickSearchMaps.enabled = false;
-          travelHome.enabled = false;
-          travelTo.alias = "driveto";
-        };
-      };
-      clipboard = {
-        preferences.encryption = true;
-        entrypoints.history.preferences.defaultAction = "copy";
-      };
-      core = {
-        entrypoints = {
-          about.enabled = false;
-          documentation.enabled = false;
-          keybind-settings.enabled = false;
-          list-extensions.enabled = false;
-	  open-config-file.enabled = false;
-          open-default-config.enabled = false;
-          report-bug.enabled = false;
-          sponsor.enabled = false;
-        };
-      };
-      files = {
-        enabled = false;
-        preferences.autoIndexing = true;
-      };
-      power = {
-        entrypoints = {
-          hibernate.enabled = false;
-          sleep.enabled = false;
-        };
-      };
-      theme.enabled = false;
-    };
+    #    providers = {
+    #      "@Gelei/bluetooth-0" = {
+    #        preferences.connectionToggleable = true;
+    #      };
+    #      "@gebeto/store.raycast.translate" = {
+    #        preferences.autoInput = true;
+    #        entrypoints = {
+    #          instant-translate-copy.enabled = false;
+    #          instant-translate-paste.enabled = false;
+    #          instant-translate-view.enabled = false;
+    #          quick-translate.enabled = true;
+    #          translate.enabled = false;
+    #          translate-form.enabled = false;
+    #        };
+    #      };
+    #      "@knoopx/nix-0" = {
+    #        entrypoints = {
+    #          flake-packages.enabled = true;
+    #          appendTaskCommand.enabled = false;
+    #          dailyNoteAppendCommand.enabled = false;
+    #          dailyNoteCommand.enabled = false;
+    #          openVaultCommand.enabled = false;
+    #          openWorkspaceCommand.enabled = false;
+    #          randomNoteCommand.enabled = false;
+    #          searchMedia.enabled = false;
+    #        };
+    #      };
+    #      "@ratoru/store.raycast.google-maps-search" = {
+    #        preferences = {
+    #          preferredMode = "driving";
+    #          preferredOrigin = "home";
+    #          useSelected = true;
+    #        };
+    #        entrypoints = {
+    #          find.enabled = false;
+    #          quickSearchMaps.enabled = false;
+    #          travelHome.enabled = false;
+    #          travelTo.alias = "driveto";
+    #        };
+    #      };
+    #      clipboard = {
+    #        preferences.encryption = true;
+    #        entrypoints.history.preferences.defaultAction = "copy";
+    #      };
+    #      core = {
+    #        entrypoints = {
+    #          about.enabled = false;
+    #          documentation.enabled = false;
+    #          keybind-settings.enabled = false;
+    #          list-extensions.enabled = false;
+    #	  open-config-file.enabled = false;
+    #          open-default-config.enabled = false;
+    #          report-bug.enabled = false;
+    #          sponsor.enabled = false;
+    #        };
+    #      };
+    #      files = {
+    #        enabled = false;
+    #        preferences.autoIndexing = true;
+    #      };
+    #      power = {
+    #        entrypoints = {
+    #          hibernate.enabled = false;
+    #          sleep.enabled = false;
+    #        };
+    #      };
+    #  theme.enabled = false;
+    #};
   };
 
   # Create settings.json with imports if it doesn't exist or doesn't have imports

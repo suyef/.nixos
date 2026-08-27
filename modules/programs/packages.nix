@@ -26,6 +26,8 @@ in {
 
   programs.fish.enable = true;
 
+  programs.driftwm.enable = true;
+
   environment.systemPackages = with pkgs; [
     git
     wget
@@ -88,6 +90,11 @@ in {
     zathura
     flow-control
     helix
+
+    #bloat
+    jay
+    labwc 
+    sway 
 
   ];
 }

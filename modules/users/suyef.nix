@@ -19,6 +19,7 @@
     "dialout"
     "flatpak"
     "nix"
+    "video"
   ];
 
   # Admin-only groups (sudo + libvirt system access)

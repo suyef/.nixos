@@ -6,6 +6,7 @@
     inputs.determinate.nixosModules.default
     inputs.sops-nix.nixosModules.sops
     inputs.stylix.nixosModules.stylix
+    inputs.driftwm.nixosModules.default
     ../modules/dreamingoptimal
     ../modules/nix-file-overlay
   ];
