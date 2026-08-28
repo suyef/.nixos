@@ -69,6 +69,8 @@ in {
     llvm
     gcc
 
+    texliveFull
+
     openrocket
     # freecad
 
