@@ -98,5 +98,9 @@ in {
     labwc 
     sway 
 
+    # bloatier 
+    sxwm
+    sxbar
+
   ];
 }

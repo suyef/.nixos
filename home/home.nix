@@ -28,11 +28,6 @@
      force = true;
   };
 
-  home.file."./.config/niri" = {
-    source = ./config/niri;
-    recursive = true;
-  };
-
   home.file."./.config/alacritty" = {
     source = ./config/alacritty;
     recursive = true;

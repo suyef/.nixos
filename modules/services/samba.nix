@@ -4,7 +4,7 @@
   ...
 }: {
   services.samba = {
-    enable = true;
+    enable = false;
 
     openFirewall = true;
 
@@ -32,10 +32,10 @@
 
   # mDNS for Samba
   services.avahi = {
-    enable = true;
+    enable = false;
     nssmdns4 = true;
     publish = {
-      enable = true;
+      enable = false;
       addresses = true;
       domain = true;
       hinfo = true;

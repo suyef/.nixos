@@ -31,18 +31,6 @@ lib,
         "org.freedesktop.impl.portal.FileChooser" = "kde";
         "org.freedesktop.impl.portal.OpenURI" = "kde";
       };
-      niri = lib.mkForce {
-        default = [
-          "gnome"
-          "gtk"
-          "kde"
-        ];
-        "org.freedesktop.impl.portal.Access" = "gtk";
-        "org.freedesktop.impl.portal.FileChooser" = "kde";
-        "org.freedesktop.impl.portal.Notification" = "gtk";
-        "org.freedesktop.impl.portal.OpenURI" = "kde";
-        "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
-      };
       plasma = {
         default = [
           "kde"
@@ -56,7 +44,6 @@ lib,
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
       kdePackages.xdg-desktop-portal-kde
-      xdg-desktop-portal-gnome
       #kdePackages.kwallet
     ];
   };
@@ -79,6 +66,7 @@ lib,
     elisa
     krdp
     plasma-browser-integration
+    discover
   ];
 
   # Set the menu prefix so kbuildsycoca6 knows to look for plasma-applications.menu
@@ -97,17 +85,6 @@ lib,
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
-
-  programs.niri = {
-    enable = true;
-    useNautilus = false;
-  };
-
-  environment.systemPackages = with pkgs; [
-    niri
-    niriswitcher
-    xwayland-satellite
-  ];
 
   services.xserver.xkb = {
     layout = "us";
