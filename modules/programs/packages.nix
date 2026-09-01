@@ -46,6 +46,7 @@ in {
     pinentry-qt
     gnupg
     btop
+    nvtopPackages.full
     xdg-desktop-portal
 
     wl-clipboard-rs
@@ -97,10 +98,5 @@ in {
     jay
     labwc 
     sway 
-
-    # bloatier 
-    sxwm
-    sxbar
-
   ];
 }
