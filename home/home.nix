@@ -33,6 +33,11 @@
     recursive = true;
   };
 
+  home.file."./.config/noctalia" = {
+    source = ./config/noctalia;
+    recursive = true;
+  };
+
   home.file."Pictures/wallpapers" = {
     source = ./config/wallpapers;
     recursive = true;
