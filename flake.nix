@@ -60,6 +60,7 @@
     };
     hyprland = {
       url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix = {
       url = "github:nix-community/stylix";
@@ -77,7 +78,11 @@
       url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    driftwm.url = "github:malbiruk/driftwm";
+    driftwm = {
+      url = "github:malbiruk/driftwm";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    codex-desktop.url = "github:ilysenko/codex-desktop-linux";
   };
 
   outputs = inputs @ {

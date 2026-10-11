@@ -65,6 +65,8 @@ in {
     zed-editor
 
     codex
+    claude-code
+    inputs.codex-desktop.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     clang
     llvm
