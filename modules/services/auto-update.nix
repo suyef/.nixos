@@ -42,10 +42,6 @@
     # We want to update on Sunday (0) or any day after if we haven't updated this week yet
     # Since we already checked if we updated this week, we can proceed
 
-    # Wait a bit after boot to ensure system activation is complete
-    echo "Waiting for system to stabilize..."
-    sleep 30
-
     notify_users "NixOS Auto-Update" "Starting weekly system update..." "low"
     echo "Starting NixOS auto-update for week $CURRENT_WEEK..."
 
@@ -117,6 +113,13 @@
     fi
   '';
 in {
+  # Run shortly after boot via a timer instead of from multi-user.target, so the
+  # oneshot doesn't hold up graphical.target (and therefore the uwsm/Hyprland login).
+  systemd.timers.nixos-auto-update = {
+    wantedBy = ["timers.target"];
+    timerConfig.OnBootSec = "1min";
+  };
+
   # NixOS auto-update service (runs on boot, applies weekly updates)
   systemd.services.nixos-auto-update = {
     description = "NixOS Weekly Auto-Update";
@@ -129,7 +132,6 @@ in {
     wants = ["network-online.target"];
     # Conflict with any other nixos-rebuild operations
     conflicts = ["nixos-upgrade.service"];
-    wantedBy = ["multi-user.target"];
     path = [
       pkgs.gitFull
       pkgs.sudo-rs
